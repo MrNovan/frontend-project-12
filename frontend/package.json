@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@rollbar/react": "^0.12.1",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.6",
@@ -20,6 +21,7 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-i18next": "^15.5.2",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
     "rollbar": "^2.26.4"
   },
