@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -8,7 +6,6 @@ import axios from "axios";
 import { ToastContainer } from 'react-toastify';
 import useSocket from '../hooks/useSocket.js';
 import Header from "../components/Header.jsx";
-
 
 
 const getChannels = async (userToken) => {
