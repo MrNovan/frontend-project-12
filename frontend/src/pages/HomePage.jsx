@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer } from 'react-toastify';
 import useSocket from '../hooks/useSocket.js';
+import Header from "../components/Header.jsx";
+
 
 
 const getChannels = async (userToken) => {
