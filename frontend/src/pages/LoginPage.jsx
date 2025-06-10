@@ -7,7 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useRollbar } from '@rollbar/react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-
+import SimpleHeader from '../components/SimpleHeader.jsx';
 
 const LoginPage = () => {
   const [error, setError] = useState(null);
