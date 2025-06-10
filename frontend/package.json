@@ -12,9 +12,14 @@
   },
   "dependencies": {
     "@rollbar/react": "^0.12.1",
+    "axios": "^1.9.0",
+    "bootstrap": "^5.3.6",
     "formik": "^2.4.6",
+    "i18next": "^25.2.1",
     "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
+    "react-i18next": "^15.5.2",
     "react-router-dom": "^7.6.2",
     "rollbar": "^2.26.4"
   },
