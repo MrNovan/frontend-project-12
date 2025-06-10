@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { Button, Dropdown, } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
