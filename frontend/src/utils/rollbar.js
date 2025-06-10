@@ -1,6 +1,6 @@
 export default {
-  accessToken: '78062ade69f74d4da74091dddde651a4',
-  environment: 'testenv',
+  accessToken: import.meta.env.REACT_APP_ROLLBAR_TOKEN,
+  environment: import.meta.env.REACT_APP_ENVIRONMENT,
   captureUncaught: true,
   captureUnhandledRejections: true,
 };
