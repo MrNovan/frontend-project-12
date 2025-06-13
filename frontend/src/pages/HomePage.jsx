@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { ToastContainer } from 'react-toastify';
-import useSocket from '../hooks/useSocket.js';
 import Header from "../components/Header.jsx";
 import { addChannels, setActiveChannel } from '../slices/channelsSlice.js';
+import ChannelsList from "../components/ChannelsList.jsx";
+import ChatWindow from "../components/ChatWindow.jsx";
+import useSocket from '../hooks/useSocket.js';
 
 const getChannels = async (userToken) => {
   try {
