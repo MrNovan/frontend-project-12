@@ -6,7 +6,7 @@ import axios from "axios";
 import { ToastContainer } from 'react-toastify';
 import useSocket from '../hooks/useSocket.js';
 import Header from "../components/Header.jsx";
-
+import { addChannels, setActiveChannel } from '../slices/channelsSlice.js';
 
 const getChannels = async (userToken) => {
   try {
