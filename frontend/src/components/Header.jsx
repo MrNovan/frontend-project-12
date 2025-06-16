@@ -1,22 +1,22 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Button } from 'react-bootstrap';
-import { userLogOut } from '../slices/authSlice.js';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Button } from 'react-bootstrap'
+import { userLogOut } from '../slices/authSlice.js'
+import { useTranslation } from 'react-i18next'
 
 const Header = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    dispatch(userLogOut());
-    navigate('/');
+    dispatch(userLogOut())
+    navigate('/')
   }
   const goToHome = () => {
-    navigate('/');
-  };
+    navigate('/')
+  }
 
   return (
     <div className="bg-light border-bottom p-2">
@@ -33,7 +33,7 @@ const Header = () => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(Header);
+export default React.memo(Header)

@@ -1,12 +1,12 @@
-import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { setActiveChannel } from "../../slices/channelsSlice";
+import { Button } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { setActiveChannel } from "../../slices/channelsSlice"
 
 const UnremovableChannel = ({ channel, isActive }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleClick = (channel) => {
-    dispatch(setActiveChannel(channel));
+    dispatch(setActiveChannel(channel))
   }
 
   return (
@@ -18,7 +18,7 @@ const UnremovableChannel = ({ channel, isActive }) => {
     >
       # {channel.name}
     </Button>
-  );
-};
+  )
+}
 
-export default UnremovableChannel;
+export default UnremovableChannel

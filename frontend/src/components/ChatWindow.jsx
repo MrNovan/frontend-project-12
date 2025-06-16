@@ -1,9 +1,9 @@
-import { Card } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useRef } from 'react';
-import axios from 'axios';
-import MessageForm from './MessageForm.jsx';
-import { addMessages } from '../slices/messagesSlice.js';
+import { Card } from 'react-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useRef } from 'react'
+import axios from 'axios'
+import MessageForm from './MessageForm.jsx'
+import { addMessages } from '../slices/messagesSlice.js'
 
 const getMessages = async (userToken) => {
   try {
@@ -11,42 +11,42 @@ const getMessages = async (userToken) => {
       headers: {
         Authorization: `Bearer ${userToken}`,
       }
-    });
-    const channels = response.data;
-    return channels;
+    })
+    const channels = response.data
+    return channels
   } catch (err) {
-    console.log(err);
-    throw err;
+    console.log(err)
+    throw err
   }
 }
 
 const ChatWindow = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   
-  const token = useSelector((state) => state.auth.user.token);
-  const messages = useSelector((state) => state.messages.messages);
-  const activeChannel = useSelector((state) => state.channels.activeChannel);
-  const filteredMessages = messages.filter((message) => message.channelId === activeChannel?.id);
+  const token = useSelector((state) => state.auth.user.token)
+  const messages = useSelector((state) => state.messages.messages)
+  const activeChannel = useSelector((state) => state.channels.activeChannel)
+  const filteredMessages = messages.filter((message) => message.channelId === activeChannel?.id)
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef(null)
 
   useEffect(() => {
-    messagesEndRef.current.scrollIntoView({ behavior: 'instant' });
-  }, [filteredMessages]);
+    messagesEndRef.current.scrollIntoView({ behavior: 'instant' })
+  }, [filteredMessages])
 
   useEffect(() => {
     if (token) {
       const fetchMessages = async () => {
         try {
-          const messages = await getMessages(token);
-          dispatch(addMessages(messages));
+          const messages = await getMessages(token)
+          dispatch(addMessages(messages))
         } catch (error) {
-          console.log(error);
+          console.log(error)
         }
       }
-      fetchMessages();
+      fetchMessages()
     }
-  }, [token, dispatch]);
+  }, [token, dispatch])
 
   return (
     <>
@@ -67,7 +67,7 @@ const ChatWindow = () => {
       </Card>
       <MessageForm />
     </>
-  );
-};
+  )
+}
 
-export default ChatWindow;
+export default ChatWindow

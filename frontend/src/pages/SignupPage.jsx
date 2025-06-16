@@ -1,23 +1,23 @@
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import { Form, Button, Container, Alert } from 'react-bootstrap';
-import { useNavigate, Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import { useRollbar } from '@rollbar/react';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
-import { useTranslation } from 'react-i18next';
-import { userLogIn } from '../slices/authSlice.js';
-import SimpleHeader from '../components/SimpleHeader.jsx';
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+import { Form, Button, Container, Alert } from 'react-bootstrap'
+import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { useRollbar } from '@rollbar/react'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import { useTranslation } from 'react-i18next'
+import { userLogIn } from '../slices/authSlice.js'
+import SimpleHeader from '../components/SimpleHeader.jsx'
 
 const SignupPage = () => {
-  const [error, setError] = useState(null);
-  const [disabled, setDisabled] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const usernameInputRef = useRef(null);
-  const { t } = useTranslation();
-  const rollbar = useRollbar();
+  const [error, setError] = useState(null)
+  const [disabled, setDisabled] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const usernameInputRef = useRef(null)
+  const { t } = useTranslation()
+  const rollbar = useRollbar()
 
   const formik = useFormik({
     initialValues: {
@@ -31,13 +31,13 @@ const SignupPage = () => {
         .min(3, t('errors.lengthRules'))
         .max(20, t('errors.lengthRules'))
         .test('no-spaces', t('errors.required'), (value) => {
-          return value.trim().length > 0;
+          return value.trim().length > 0
         }),
       password: yup.string()
         .required(t('errors.required'))
         .min(6, t('errors.passwordMinLength'))
         .test('no-spaces', t('errors.required'), (value) => {
-          return value.trim().length > 0;
+          return value.trim().length > 0
         }),
       confirmPassword: yup.string()
         .required(t('signupPage.confirmPassword'))
@@ -46,34 +46,34 @@ const SignupPage = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
-      setError(null);
-      setDisabled(true);
+      setError(null)
+      setDisabled(true)
       try {
         const response = await axios.post('/api/v1/signup', {
           username: values.username,
           password: values.password,
-        });
-        const { username, token } = response.data;
-        dispatch(userLogIn({ username, token }));
-        navigate('/');
+        })
+        const { username, token } = response.data
+        dispatch(userLogIn({ username, token }))
+        navigate('/')
       } catch (error) {
         if (error.code === 'ERR_NETWORK') {
-          setError(t('errors.network'));
+          setError(t('errors.network'))
         } else if (error.code === 'ERR_BAD_REQUEST') {
-          setError(t('errors.userExist'));
+          setError(t('errors.userExist'))
         } else {
-          rollbar.error('Ошибка при регистрации', error);
-          setError(t('errors.unknown'));
+          rollbar.error('Ошибка при регистрации', error)
+          setError(t('errors.unknown'))
         }
       } finally {
-        setDisabled(false);
+        setDisabled(false)
       }
     }
-  });
+  })
 
   useEffect(() => {
-    usernameInputRef.current.focus();
-  }, []);
+    usernameInputRef.current.focus()
+  }, [])
 
   return (
     <>
@@ -137,12 +137,12 @@ const SignupPage = () => {
           <Button className="w-100" variant="primary" type="submit" disabled={disabled}>{t('signupPage.registration')}</Button>
   
           <Form.Text className="text-center mt-3 d-block">
-          {t('signupPage.haveAcc')} <Link to="/login">{t('signupPage.loginNavigate')}</Link>
+            {t('signupPage.haveAcc')} <Link to="/login">{t('signupPage.loginNavigate')}</Link>
           </Form.Text>
         </Form>
       </Container>
     </>
-  );
+  )
 }
 
-export default SignupPage;
+export default SignupPage

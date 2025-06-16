@@ -39,18 +39,18 @@ const ChannelList = ({ channels }) => {
               className="p-0 border-0"
             >
               {channel.removable
-              // eslint-disable-next-line
+               
                 ? (
-                    <RemovableChannel
-                          channel={channel}
-                      isActive={channel.id === activeChannel.id}
-                    />
-                  ) : (
-                    <UnremovableChannel
-                      channel={channel}
-                      isActive={channel.id === activeChannel.id}
-                    />
-              )}
+                  <RemovableChannel
+                    channel={channel}
+                    isActive={channel.id === activeChannel.id}
+                  />
+                ) : (
+                  <UnremovableChannel
+                    channel={channel}
+                    isActive={channel.id === activeChannel.id}
+                  />
+                )}
             </ListGroup.Item>
           ))}
         </ListGroup>

@@ -1,10 +1,10 @@
-import { Container, Button, Card } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Container, Button, Card } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const NotFoundPage = () => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
@@ -31,7 +31,7 @@ const NotFoundPage = () => {
         </Card.Body>
       </Card>
     </Container>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

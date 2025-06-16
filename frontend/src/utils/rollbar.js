@@ -3,4 +3,4 @@ export default {
   environment: import.meta.env.REACT_APP_ENVIRONMENT,
   captureUncaught: true,
   captureUnhandledRejections: true,
-};
+}

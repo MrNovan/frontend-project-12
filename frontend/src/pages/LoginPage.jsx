@@ -1,22 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
-import { useFormik } from 'formik';
-import { Form, Button, Container, Alert } from 'react-bootstrap';
-import { userLogIn } from '../slices/authSlice.js';
+import { useState, useEffect, useRef } from 'react'
+import { useFormik } from 'formik'
+import { Form, Button, Container, Alert } from 'react-bootstrap'
+import { userLogIn } from '../slices/authSlice.js'
 import { useDispatch } from 'react-redux'
-import { useNavigate, Link } from 'react-router-dom';
-import { useRollbar } from '@rollbar/react';
-import axios from 'axios';
-import { useTranslation } from 'react-i18next';
-import SimpleHeader from '../components/SimpleHeader.jsx';
+import { useNavigate, Link } from 'react-router-dom'
+import { useRollbar } from '@rollbar/react'
+import axios from 'axios'
+import { useTranslation } from 'react-i18next'
+import SimpleHeader from '../components/SimpleHeader.jsx'
 
 const LoginPage = () => {
-  const [error, setError] = useState(null);
-  const [disabled, setDisabled] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const usernameInputRef = useRef(null);
-  const { t } = useTranslation();
-  const rollbar = useRollbar();
+  const [error, setError] = useState(null)
+  const [disabled, setDisabled] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const usernameInputRef = useRef(null)
+  const { t } = useTranslation()
+  const rollbar = useRollbar()
 
   const formik = useFormik({
     initialValues: {
@@ -24,31 +24,31 @@ const LoginPage = () => {
       password: '',
     },
     onSubmit: async (values) => {
-      setError(null);
-      setDisabled(true);
+      setError(null)
+      setDisabled(true)
       try {
-        const response = await axios.post('/api/v1/login', values);
-        const { token, username } = response.data;
-        dispatch(userLogIn({ username, token }));
-        navigate('/');
+        const response = await axios.post('/api/v1/login', values)
+        const { token, username } = response.data
+        dispatch(userLogIn({ username, token }))
+        navigate('/')
       } catch(error) {
         if (error.code === 'ERR_NETWORK') {
-          setError(t('errors.network'));
+          setError(t('errors.network'))
         } else if (error.code === 'ERR_BAD_REQUEST') {
-          setError(t('errors.incorrectPasswordOrUsername'));
+          setError(t('errors.incorrectPasswordOrUsername'))
         } else {
-          rollbar.error('Ошибка при входе', error);
-          setError(t('errors.unknown'));
+          rollbar.error('Ошибка при входе', error)
+          setError(t('errors.unknown'))
         }
       } finally {
-        setDisabled(false);
+        setDisabled(false)
       }
     }
-  });
+  })
 
   useEffect(() => {
-    usernameInputRef.current.focus();
-  }, []);
+    usernameInputRef.current.focus()
+  }, [])
 
   return (
     <>
@@ -90,7 +90,7 @@ const LoginPage = () => {
         </Form>
       </Container>
     </>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage

@@ -1,15 +1,15 @@
 
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Header = () => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const goToHome = () => {
-    navigate('/');
-  };
+    navigate('/')
+  }
 
   return (
     <div className="bg-light border-bottom p-2">
@@ -23,7 +23,7 @@ const Header = () => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(Header);
+export default React.memo(Header)

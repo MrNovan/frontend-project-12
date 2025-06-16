@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   modalNewChat: {
@@ -11,35 +11,35 @@ const initialState = {
     status: false,
   },
   currentChannel: null,
-};
+}
 
 const modalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
     openModalNewChat: (state) => {
-      state.modalNewChat.status = true;
+      state.modalNewChat.status = true
     },
     closeModalNewChat: (state) => {
-      state.modalNewChat.status = false;
+      state.modalNewChat.status = false
     },
     openModalRemoveChat: (state) => {
-      state.modalRemoveChat.status = true;
+      state.modalRemoveChat.status = true
     },
     closeModalRemoveChat: (state) => {
-      state.modalRemoveChat.status = false;
+      state.modalRemoveChat.status = false
     },
     openModalRenameChat: (state) => {
-      state.modalRenameChat.status = true;
+      state.modalRenameChat.status = true
     },
     closeModalRenameChat: (state) => {
-      state.modalRenameChat.status = false;
+      state.modalRenameChat.status = false
     },
     setCurrentChannel: (state, { payload }) => {
-      state.currentChannel = payload;
+      state.currentChannel = payload
     }
   }
-});
+})
 
 export const {
   openModalNewChat,
@@ -49,6 +49,6 @@ export const {
   openModalRenameChat, 
   closeModalRenameChat,
   setCurrentChannel, 
-} = modalsSlice.actions;
+} = modalsSlice.actions
 
-export default modalsSlice.reducer;
+export default modalsSlice.reducer
