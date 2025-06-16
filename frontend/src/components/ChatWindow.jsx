@@ -14,7 +14,7 @@ const getMessages = async (userToken) => {
     })
     const channels = response.data
     return channels
-  } 
+  }
   catch (err) {
     console.log(err)
     throw err

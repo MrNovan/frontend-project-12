@@ -10,9 +10,9 @@ const MessageForm = () => {
   const { t } = useTranslation()
   const [error, setError] = useState(null)
 
-  const username = useSelector((state) => state.auth.user.username)
-  const token = useSelector((state) => state.auth.user.token)
-  const activeChannel = useSelector((state) => state.channels.activeChannel)
+  const username = useSelector(state => state.auth.user.username)
+  const token = useSelector(state => state.auth.user.token)
+  const activeChannel = useSelector(state => state.channels.activeChannel)
 
   const formik = useFormik({
     initialValues: {
@@ -29,19 +29,21 @@ const MessageForm = () => {
         await axios.post('/api/v1/messages', { body: trimmedMessage, channelId, username }, {
           headers: {
             Authorization: `Bearer ${token}`,
-          }
+          },
         })
-      } catch(err) {
+      }
+      catch(err) {
         if (err.code === 'ERR_NETWORK') {
           setError('Ошибка сети')
           console.log(error)
-        } else {
+        }
+        else {
           setError('Неизвестая ошибка')
           console.log(error)
         }
-      } 
+      }
       formik.resetForm()
-    }
+    },
   })
 
   const textareaRef = useRef(null)
