@@ -39,10 +39,11 @@ const ChannelList = ({ channels }) => {
               className="p-0 border-0"
             >
               {channel.removable
-                ? (
+                ?
+                (
                     <RemovableChannel
                       channel={channel}
-                        isActive={channel.id === activeChannel.id}
+                      isActive={channel.id === activeChannel.id}
                     />
                   ) : (
                     <UnremovableChannel

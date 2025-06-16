@@ -24,7 +24,6 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
-      //'@stylistic/indent': ['error', 2],
       '@stylistic/semi': ['error', 'never'],
       '@stylistic/quotes': ['error', 'single'],
       ...reactHooks.configs.recommended.rules,
