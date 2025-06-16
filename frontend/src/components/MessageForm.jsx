@@ -32,7 +32,7 @@ const MessageForm = () => {
           },
         })
       }
-      catch(err) {
+      catch (err) {
         if (err.code === 'ERR_NETWORK') {
           setError('Ошибка сети')
           console.log(error)
@@ -65,7 +65,7 @@ const MessageForm = () => {
           as="textarea"
           rows={2}
           placeholder={t('homepage.message')}
-          aria-label='Новое сообщение'
+          aria-label="Новое сообщение"
           style={{ resize: 'none' }}
           id="message"
           name="message"
