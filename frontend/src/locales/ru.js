@@ -19,8 +19,8 @@ export default {
     },
     loginPage: {
       login: 'Войти',
-      username: 'Ваш ник',
-      yourUsername: 'Ник',
+      username: 'Ник',
+      yourUsername: 'Ваш ник',
       noAcc: 'Нет аккаунта?',
       signupNavigate: 'Регистрация',
     },
