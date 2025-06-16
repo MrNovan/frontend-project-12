@@ -38,7 +38,8 @@ const ChannelList = ({ channels }) => {
               active={channel.id === activeChannel.id}
               className="p-0 border-0"
             >
-              {channel.removable ? (
+              {channel.removable ?
+                  (
                     <RemovableChannel
                       channel={channel}
                       isActive={channel.id === activeChannel.id}
