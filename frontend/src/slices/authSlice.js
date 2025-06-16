@@ -4,7 +4,7 @@ const initialState = {
   user: {
     username: localStorage.getItem('username') || null,
     token: localStorage.getItem('token') || null,
-  }
+  },
 }
 
 const authSlice = createSlice({
@@ -22,8 +22,8 @@ const authSlice = createSlice({
       state.user.token = null
       localStorage.removeItem('username')
       localStorage.removeItem('token')
-    }
-  }
+    },
+  },
 })
 
 export const { userLogIn, userLogOut } = authSlice.actions

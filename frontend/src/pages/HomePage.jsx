@@ -40,7 +40,8 @@ const HomePage = () => {
   useEffect(() => {
     if (!token) {
       navigate('/login')
-    } else {
+    }
+    else {
       const fetchChannels = async () => {
         try {
           const channels = await getChannels(token)

@@ -12,7 +12,7 @@ const setupSocketListeners = () => {
     const { channels, activeChannel } = getState().channels
     const { messages } = getState().messages
     dispatch(removeChannel(payload))
-    messages.forEach((message) => dispatch(removeMessage(payload, message)))
+    messages.forEach(message => dispatch(removeMessage(payload, message)))
     if (payload.id === activeChannel.id) {
       dispatch(setActiveChannel(channels[0]))
     }
