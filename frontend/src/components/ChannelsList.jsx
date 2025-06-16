@@ -44,7 +44,8 @@ const ChannelList = ({ channels }) => {
                       channel={channel}
                       isActive={channel.id === activeChannel.id}
                     />
-                  ) : (
+                  )
+: (
                     <UnremovableChannel
                       channel={channel}
                       isActive={channel.id === activeChannel.id}

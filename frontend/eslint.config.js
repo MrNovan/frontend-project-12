@@ -25,6 +25,7 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       '@stylistic/semi': ['error', 'never'],
+      'multiline-ternary': ['error', 'always-multiline'],
       '@stylistic/quotes': ['error', 'single'],
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
