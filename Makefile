@@ -2,6 +2,12 @@
 FRONT = frontend
 
 # === Цели ===
+install: preinstall
+	npm ci --prefix frontend
+
+preinstall:
+	npm ci
+
 build:
 	@cd $(FRONT) && npm run build
 
