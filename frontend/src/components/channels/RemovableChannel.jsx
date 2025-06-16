@@ -1,9 +1,8 @@
-import { Button, Dropdown, } from 'react-bootstrap'
+import { Button, Dropdown } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { setActiveChannel } from '../../slices/channelsSlice'
 import { openModalRemoveChat, openModalRenameChat, setCurrentChannel } from '../../slices/modalsSlice'
-
 
 const RemovableChannel = ({ channel, isActive }) => {
   const { t } = useTranslation()
@@ -26,7 +25,8 @@ const RemovableChannel = ({ channel, isActive }) => {
         className={`text-start flex-grow-1 rounded-0 border-end-0 ${isActive ? 'text-white' : ''}`}
         style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
       >
-        # {channel.name}
+        #
+        {channel.name}
       </Button>
       <Dropdown
         align="end"
