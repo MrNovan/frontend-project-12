@@ -1,10 +1,9 @@
-/* eslint-disable */
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { userLogOut } from '../slices/authSlice.js';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const { t } = useTranslation();
