@@ -10,7 +10,7 @@ const store = configureStore({
     channels: channelsReducer,
     messages: messagesReducer,
     modals: modalsReducer,
-  }
+  },
 })
 
 export default store

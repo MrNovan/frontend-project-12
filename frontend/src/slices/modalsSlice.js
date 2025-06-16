@@ -37,8 +37,8 @@ const modalsSlice = createSlice({
     },
     setCurrentChannel: (state, { payload }) => {
       state.currentChannel = payload
-    }
-  }
+    },
+  },
 })
 
 export const {
@@ -46,9 +46,9 @@ export const {
   closeModalNewChat,
   openModalRemoveChat,
   closeModalRemoveChat,
-  openModalRenameChat, 
+  openModalRenameChat,
   closeModalRenameChat,
-  setCurrentChannel, 
+  setCurrentChannel,
 } = modalsSlice.actions
 
 export default modalsSlice.reducer

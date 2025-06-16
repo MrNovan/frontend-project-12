@@ -14,7 +14,7 @@ export const removeMessage = createAsyncThunk(
         },
       })
     }
-  }
+  },
 )
 
 const initialState = {
@@ -30,15 +30,15 @@ const messagesSlice = createSlice({
     },
     addMessages: (state, { payload }) => {
       state.messages = payload
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(removeChannel, (state, { payload }) => {
       const channelId = payload.id
-      const restMessages = state.messages.filter((message) => message.channelId !== channelId)
+      const restMessages = state.messages.filter(message => message.channelId !== channelId)
       state.messages = restMessages
     })
-  }
+  },
 })
 
 export const { addNewMessage, addMessages } = messagesSlice.actions

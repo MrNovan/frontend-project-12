@@ -9,11 +9,11 @@ i18n
     fallbackLng: 'ru',
     debug: false,
     resources: {
-      ru: ru
+      ru: ru,
     },
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   })
 
 export default i18n
