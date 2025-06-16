@@ -16,7 +16,8 @@ const UnremovableChannel = ({ channel, isActive }) => {
       className={`w-100 text-start rounded-0 border-0 ${isActive ? 'text-white' : ''}`}
       style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
     >
-      # {channel.name}
+      #
+      {channel.name}
     </Button>
   )
 }

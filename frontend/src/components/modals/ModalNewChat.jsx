@@ -15,9 +15,9 @@ const ModalNewChat = () => {
   const [disabled, setDisabled] = useState(false)
   const { t } = useTranslation()
 
-  const token = useSelector((state) => state.auth.user.token)
-  const channels = useSelector((state) => state.channels.channels)
-  const modalNewChatStatus = useSelector((state) => state.modals.modalNewChat.status)
+  const token = useSelector(state => state.auth.user.token)
+  const channels = useSelector(state => state.channels.channels)
+  const modalNewChatStatus = useSelector(state => state.modals.modalNewChat.status)
 
   const notify = () => toast.success(t('notifications.created'))
 
@@ -35,7 +35,7 @@ const ModalNewChat = () => {
           return value.trim().length > 0
         })
         .test('unique-channel', t('errors.unique'), (value) => {
-          return !channels.some((channel) => channel.name === value.trim())
+          return !channels.some(channel => channel.name === value.trim())
         }),
     }),
     validateOnBlur: false,
@@ -48,23 +48,25 @@ const ModalNewChat = () => {
         const response = await axios.post('/api/v1/channels', { name: newChannelName }, {
           headers: {
             Authorization: `Bearer ${token}`,
-          }
+          },
         })
         const newChannel = response.data
         dispatch(setActiveChannel(newChannel))
         notify()
-      } catch(err) {
+      }
+      catch (err) {
         console.log(err)
-      } finally {
+      }
+      finally {
         formik.resetForm()
         setDisabled(false)
       }
-      
+    
       formik.resetForm()
       if (!formik.errors.newChannelName) {
         handleClose()
       }
-    }
+    },
   })
 
   const inputRef = useRef(null)
@@ -74,7 +76,7 @@ const ModalNewChat = () => {
       inputRef.current.focus()
     }
   }, [modalNewChatStatus])
-  
+ 
   const handleClose = () => {
     formik.setErrors({})
     formik.resetForm()
