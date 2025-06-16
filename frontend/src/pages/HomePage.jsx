@@ -9,6 +9,9 @@ import { addChannels, setActiveChannel } from '../slices/channelsSlice.js';
 import ChannelsList from "../components/ChannelsList.jsx";
 import ChatWindow from "../components/ChatWindow.jsx";
 import useSocket from '../hooks/useSocket.js';
+import ModalNewChat from '../components/modals/ModalNewChat.jsx';
+import RemoveModal from '../components/modals/RemoveModal.jsx';
+import RenameModal from '../components/modals/RenameModal.jsx';
 
 const getChannels = async (userToken) => {
   try {
