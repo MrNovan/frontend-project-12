@@ -10,10 +10,10 @@ const RemoveModal = () => {
   const [disabled, setDisabled] = useState(null)
   const dispatch = useDispatch()
   const { t } = useTranslation()
-  
-  const token = useSelector((state) => state.auth.user.token)
-  const currentChannel = useSelector((state) => state.modals.currentChannel)
-  const modalRemoveChatStatus = useSelector((state) => state.modals.modalRemoveChat.status)
+
+  const token = useSelector(state => state.auth.user.token)
+  const currentChannel = useSelector(state => state.modals.currentChannel)
+  const modalRemoveChatStatus = useSelector(state => state.modals.modalRemoveChat.status)
 
   const notify = () => toast.success(t('notifications.deleted'))
 
@@ -31,9 +31,11 @@ const RemoveModal = () => {
         },
       })
       notify()
-    } catch(e) {
+    }
+    catch (e) {
       console.log(e)
-    } finally {
+    }
+    finally {
       setDisabled(false)
       handleClose()
     }
@@ -52,7 +54,7 @@ const RemoveModal = () => {
           </Button>
           <Button variant="danger" onClick={handleDelete} disabled={disabled}>
             {t('modals.removeModal.remove')}
-          </Button> 
+          </Button>
         </div>
       </Modal.Body>
     </Modal>

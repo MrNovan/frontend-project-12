@@ -61,7 +61,7 @@ const ModalNewChat = () => {
         formik.resetForm()
         setDisabled(false)
       }
-    
+
       formik.resetForm()
       if (!formik.errors.newChannelName) {
         handleClose()
@@ -76,7 +76,7 @@ const ModalNewChat = () => {
       inputRef.current.focus()
     }
   }, [modalNewChatStatus])
- 
+
   const handleClose = () => {
     formik.setErrors({})
     formik.resetForm()
