@@ -10,7 +10,7 @@ const getMessages = async (userToken) => {
     const response = await axios.get('/api/v1/messages', {
       headers: {
         Authorization: `Bearer ${userToken}`,
-      }
+      },
     })
     const channels = response.data
     return channels
@@ -22,11 +22,11 @@ const getMessages = async (userToken) => {
 
 const ChatWindow = () => {
   const dispatch = useDispatch()
-  
-  const token = useSelector((state) => state.auth.user.token)
-  const messages = useSelector((state) => state.messages.messages)
-  const activeChannel = useSelector((state) => state.channels.activeChannel)
-  const filteredMessages = messages.filter((message) => message.channelId === activeChannel?.id)
+
+  const token = useSelector(state => state.auth.user.token)
+  const messages = useSelector(state => state.messages.messages)
+  const activeChannel = useSelector(state => state.channels.activeChannel)
+  const filteredMessages = messages.filter(message => message.channelId === activeChannel?.id)
 
   const messagesEndRef = useRef(null)
 
@@ -57,9 +57,13 @@ const ChatWindow = () => {
       )}
       <Card className="flex-grow-1 rounded-0 border-0 d-flex flex-column">
         <Card.Body className="overflow-auto" style={{ maxHeight: '79vh' }}>
-          {filteredMessages.map((message) => (
-            <div key={message.id} className="mb-2" style={{ wordWrap: 'break-word'}}>
-              <strong>{message.username}:</strong> {message.body}
+          {filteredMessages.map(message => (
+            <div key={message.id} className="mb-2" style={{ wordWrap: 'break-word' }}>
+              <strong>
+                {message.username}
+                :
+              </strong>
+              {message.body}
             </div>
           ))}
           <div ref={messagesEndRef} /> 
