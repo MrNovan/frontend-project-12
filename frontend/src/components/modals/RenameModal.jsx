@@ -1,13 +1,13 @@
-import { Form, Button, Modal } from "react-bootstrap"
+import { Form, Button, Modal } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import { useSelector, useDispatch } from "react-redux"
-import { useTranslation } from "react-i18next"
-import { toast } from "react-toastify"
-import filter from "../../utils/profanityFilter.js"
-import { closeModalRenameChat, setCurrentChannel } from "../../slices/modalsSlice.js"
+import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
+import filter from '../../utils/profanityFilter.js'
+import { closeModalRenameChat, setCurrentChannel } from '../../slices/modalsSlice.js'
 
 const RenameModal = () => {
   const [disabled, setDisabled] = useState(false)

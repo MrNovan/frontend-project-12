@@ -1,10 +1,10 @@
-import { Button, Modal } from "react-bootstrap"
-import axios from "axios"
-import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
-import { useTranslation } from "react-i18next"
-import { toast } from "react-toastify"
-import { closeModalRemoveChat, setCurrentChannel } from "../../slices/modalsSlice"
+import { Button, Modal } from 'react-bootstrap'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
+import { closeModalRemoveChat, setCurrentChannel } from '../../slices/modalsSlice'
 
 const RemoveModal = () => {
   const [disabled, setDisabled] = useState(null)

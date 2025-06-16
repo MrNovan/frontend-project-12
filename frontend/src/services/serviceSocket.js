@@ -1,7 +1,7 @@
-import socket from "../utils/socket"
-import { dispatch, getState } from "../slices/index.js"
-import { addNewChannel, removeChannel, renameChannel, setActiveChannel } from "../slices/channelsSlice.js"
-import { addNewMessage, removeMessage } from "../slices/messagesSlice.js"
+import socket from '../utils/socket'
+import { dispatch, getState } from '../slices/index.js'
+import { addNewChannel, removeChannel, renameChannel, setActiveChannel } from '../slices/channelsSlice.js'
+import { addNewMessage, removeMessage } from '../slices/messagesSlice.js'
 
 const setupSocketListeners = () => {
   socket.on('newChannel', (payload) => {

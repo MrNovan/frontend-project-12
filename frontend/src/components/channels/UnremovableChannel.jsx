@@ -1,6 +1,6 @@
-import { Button } from "react-bootstrap"
-import { useDispatch } from "react-redux"
-import { setActiveChannel } from "../../slices/channelsSlice"
+import { Button } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { setActiveChannel } from '../../slices/channelsSlice'
 
 const UnremovableChannel = ({ channel, isActive }) => {
   const dispatch = useDispatch()

@@ -1,13 +1,13 @@
 import { Container, Row, Col } from 'react-bootstrap'
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import axios from "axios"
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 import { ToastContainer } from 'react-toastify'
-import Header from "../components/Header.jsx"
+import Header from '../components/Header.jsx'
 import { addChannels, setActiveChannel } from '../slices/channelsSlice.js'
-import ChannelsList from "../components/ChannelsList.jsx"
-import ChatWindow from "../components/ChatWindow.jsx"
+import ChannelsList from '../components/ChannelsList.jsx'
+import ChatWindow from '../components/ChatWindow.jsx'
 import useSocket from '../hooks/useSocket.js'
 import ModalNewChat from '../components/modals/ModalNewChat.jsx'
 import RemoveModal from '../components/modals/RemoveModal.jsx'
@@ -54,7 +54,7 @@ const HomePage = () => {
   }, [token, navigate, dispatch])
 
   return (
-    <Container fluid className="vh-100 d-flex flex-column p-0" style={{ overflow: "hidden" }}>
+    <Container fluid className="vh-100 d-flex flex-column p-0" style={{ overflow: 'hidden' }}>
       <Header />
       <Row className="flex-grow-1">
         <Col md={3} className="bg-light p-3 border-end">

@@ -1,8 +1,8 @@
-import { Button, Dropdown, } from "react-bootstrap"
-import { useDispatch } from "react-redux"
-import { useTranslation } from "react-i18next"
-import { setActiveChannel } from "../../slices/channelsSlice"
-import { openModalRemoveChat, openModalRenameChat, setCurrentChannel } from "../../slices/modalsSlice"
+import { Button, Dropdown, } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { setActiveChannel } from '../../slices/channelsSlice'
+import { openModalRemoveChat, openModalRenameChat, setCurrentChannel } from '../../slices/modalsSlice'
 
 
 const RemovableChannel = ({ channel, isActive }) => {

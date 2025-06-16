@@ -1,14 +1,14 @@
-import { Form, Button, Modal } from "react-bootstrap"
+import { Form, Button, Modal } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
-import { useTranslation } from "react-i18next"
+import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveChannel } from '../../slices/channelsSlice.js'
-import { closeModalNewChat } from "../../slices/modalsSlice.js"
-import filter from "../../utils/profanityFilter.js"
+import { closeModalNewChat } from '../../slices/modalsSlice.js'
+import filter from '../../utils/profanityFilter.js'
 
 const ModalNewChat = () => {
   const dispatch = useDispatch()

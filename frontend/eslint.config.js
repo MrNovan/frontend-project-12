@@ -25,7 +25,8 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       '@stylistic/indent': ['error', 2],
-      '@stylistic/semi': ["error", "never"],
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/quotes': ['error', 'single'],
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': [
