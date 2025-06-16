@@ -14,7 +14,8 @@ const getMessages = async (userToken) => {
     })
     const channels = response.data
     return channels
-  } catch (err) {
+  } 
+  catch (err) {
     console.log(err)
     throw err
   }
@@ -40,7 +41,8 @@ const ChatWindow = () => {
         try {
           const messages = await getMessages(token)
           dispatch(addMessages(messages))
-        } catch (error) {
+        }
+        catch (error) {
           console.log(error)
         }
       }
@@ -66,7 +68,7 @@ const ChatWindow = () => {
               {message.body}
             </div>
           ))}
-          <div ref={messagesEndRef} /> 
+          <div ref={messagesEndRef} />
         </Card.Body>
       </Card>
       <MessageForm />
