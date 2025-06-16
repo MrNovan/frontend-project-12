@@ -18,11 +18,12 @@ const getChannels = async (userToken) => {
     const response = await axios.get('/api/v1/channels', {
       headers: {
         Authorization: `Bearer ${userToken}`,
-      }
+      },
     })
     const channels = response.data
     return channels
-  } catch (err) {
+  }
+  catch (err) {
     console.log(err)
     throw err
   }
@@ -33,9 +34,9 @@ const HomePage = () => {
   const navigate = useNavigate()
   useSocket()
 
-  const token = useSelector((state) => state.auth.user.token)
-  const channels = useSelector((state) => state.channels.channels)
-  
+  const token = useSelector(state => state.auth.user.token)
+  const channels = useSelector(state => state.channels.channels)
+
   useEffect(() => {
     if (!token) {
       navigate('/login')
@@ -45,7 +46,8 @@ const HomePage = () => {
           const channels = await getChannels(token)
           dispatch(addChannels(channels))
           dispatch(setActiveChannel(channels[0]))
-        } catch (error) {
+        }
+        catch (error) {
           console.log(error)
         }
       }

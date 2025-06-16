@@ -31,19 +31,23 @@ const LoginPage = () => {
         const { token, username } = response.data
         dispatch(userLogIn({ username, token }))
         navigate('/')
-      } catch(error) {
+      }
+      catch (error) {
         if (error.code === 'ERR_NETWORK') {
           setError(t('errors.network'))
-        } else if (error.code === 'ERR_BAD_REQUEST') {
+        }
+        else if (error.code === 'ERR_BAD_REQUEST') {
           setError(t('errors.incorrectPasswordOrUsername'))
-        } else {
+        }
+        else {
           rollbar.error('Ошибка при входе', error)
           setError(t('errors.unknown'))
         }
-      } finally {
+      }
+      finally {
         setDisabled(false)
       }
-    }
+    },
   })
 
   useEffect(() => {
@@ -69,7 +73,7 @@ const LoginPage = () => {
               value={formik.values.username}
             />
           </Form.Group>
-  
+
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>{t('password')}</Form.Label>
             <Form.Control
@@ -85,7 +89,8 @@ const LoginPage = () => {
           {error && (<Alert variant="danger" className="mb-3">{error}</Alert>)}
           <Button className="w-100" variant="primary" type="submit" disabled={disabled}>{t('loginPage.login')}</Button>
           <Form.Text className="text-center mt-3 d-block">
-            {t('loginPage.noAcc')} <Link to="/signup">{t('loginPage.signupNavigate')}</Link>
+            {t('loginPage.noAcc')}
+            <Link to="/signup">{t('loginPage.signupNavigate')}</Link>
           </Form.Text>
         </Form>
       </Container>

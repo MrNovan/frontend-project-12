@@ -56,19 +56,23 @@ const SignupPage = () => {
         const { username, token } = response.data
         dispatch(userLogIn({ username, token }))
         navigate('/')
-      } catch (error) {
+      }
+      catch (error) {
         if (error.code === 'ERR_NETWORK') {
           setError(t('errors.network'))
-        } else if (error.code === 'ERR_BAD_REQUEST') {
+        }
+        else if (error.code === 'ERR_BAD_REQUEST') {
           setError(t('errors.userExist'))
-        } else {
+        }
+        else {
           rollbar.error('Ошибка при регистрации', error)
           setError(t('errors.unknown'))
         }
-      } finally {
+      }
+      finally {
         setDisabled(false)
       }
-    }
+    },
   })
 
   useEffect(() => {
@@ -97,7 +101,7 @@ const SignupPage = () => {
               {formik.errors.username}
             </Form.Control.Feedback>
           </Form.Group>
-  
+
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>{t('password')}</Form.Label>
             <Form.Control
@@ -114,7 +118,7 @@ const SignupPage = () => {
               {formik.errors.password}
             </Form.Control.Feedback>
           </Form.Group>
-  
+
           <Form.Group className="mb-3" controlId="confirmPassword">
             <Form.Label>{t('signupPage.confirmPassword')}</Form.Label>
             <Form.Control
@@ -131,13 +135,14 @@ const SignupPage = () => {
               {formik.errors.confirmPassword}
             </Form.Control.Feedback>
           </Form.Group>
-  
+
           {error && (<Alert variant="danger" className="mb-3">{error}</Alert>)}
-  
+
           <Button className="w-100" variant="primary" type="submit" disabled={disabled}>{t('signupPage.registration')}</Button>
-  
+
           <Form.Text className="text-center mt-3 d-block">
-            {t('signupPage.haveAcc')} <Link to="/login">{t('signupPage.loginNavigate')}</Link>
+            {t('signupPage.haveAcc')}
+            <Link to="/login">{t('signupPage.loginNavigate')}</Link>
           </Form.Text>
         </Form>
       </Container>

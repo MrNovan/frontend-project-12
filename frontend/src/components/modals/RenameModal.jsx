@@ -14,10 +14,10 @@ const RenameModal = () => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
-  const token = useSelector((state) => state.auth.user.token)
-  const channels = useSelector((state) => state.channels.channels)
-  const currentChannel = useSelector((state) => state.modals.currentChannel)
-  const modalRenameChatStatus = useSelector((state) => state.modals.modalRenameChat.status)
+  const token = useSelector(state => state.auth.user.token)
+  const channels = useSelector(state => state.channels.channels)
+  const currentChannel = useSelector(state => state.modals.currentChannel)
+  const modalRenameChatStatus = useSelector(state => state.modals.modalRenameChat.status)
 
   const notify = () => toast.success(t('notifications.renamed'))
 
@@ -35,7 +35,7 @@ const RenameModal = () => {
           return value.trim().length > 0
         })
         .test('unique-channel', t('errors.unique'), (value) => {
-          return !channels.some((channel) => channel.name === value.trim())
+          return !channels.some(channel => channel.name === value.trim())
         }),
     }),
     validateOnBlur: false,
@@ -48,21 +48,23 @@ const RenameModal = () => {
         await axios.patch(`/api/v1/channels/${currentChannel.id}`, { name: newChannelName }, {
           headers: {
             Authorization: `Bearer ${token}`,
-          }
+          },
         })
         notify()
-      } catch(err) {
+      }
+      catch (err) {
         console.log(err)
-      } finally {
+      }
+      finally {
         formik.resetForm()
         setDisabled(false)
       }
-      
+
       formik.resetForm()
       if (!formik.errors.newChannelName) {
         handleClose()
       }
-    }
+    },
   })
 
   const inputRef = useRef(null)
@@ -108,7 +110,7 @@ const RenameModal = () => {
             </Button>
             <Button variant="primary" type="submit" disabled={disabled}>
               {t('modals.renameModal.send')}
-            </Button> 
+            </Button>
           </div>
         </Form>
       </Modal.Body>
