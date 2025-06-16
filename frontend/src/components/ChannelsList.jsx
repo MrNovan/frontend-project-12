@@ -9,7 +9,7 @@ import { openModalNewChat } from '../slices/modalsSlice.js'
 const ChannelList = ({ channels }) => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
-  const activeChannel = useSelector(state => state.channels.activeChannel);
+  const activeChannel = useSelector(state => state.channels.activeChannel)
 
   const handleShow = () => dispatch(openModalNewChat())
 
@@ -39,9 +39,10 @@ const ChannelList = ({ channels }) => {
               className="p-0 border-0"
             >
               {channel.removable
-                ? (
-                <RemovableChannel
-                  channel={channel}
+                ? 
+                    (
+                    <RemovableChannel
+                      channel={channel}
                   isActive={channel.id === activeChannel.id}
                 />
               ) : (
@@ -58,4 +59,4 @@ const ChannelList = ({ channels }) => {
   )
 }
 
-export default ChannelList;
+export default ChannelList
