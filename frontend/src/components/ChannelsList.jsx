@@ -40,16 +40,16 @@ const ChannelList = ({ channels }) => {
             >
               {channel.removable
                 ? (
-                  <RemovableChannel
-                    channel={channel}
-                    isActive={channel.id === activeChannel.id}
-                  />
-                ) : (
-                  <UnremovableChannel
-                    channel={channel}
-                    isActive={channel.id === activeChannel.id}
-                  />
-                )}
+                    <RemovableChannel
+                      channel={channel}
+                        isActive={channel.id === activeChannel.id}
+                    />
+                  ) : (
+                    <UnremovableChannel
+                      channel={channel}
+                      isActive={channel.id === activeChannel.id}
+                    />
+                  )}
             </ListGroup.Item>
           ))}
         </ListGroup>
